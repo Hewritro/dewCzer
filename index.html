@@ -47,10 +47,13 @@
 		</ul>
             </div>
             <div class="dropdown">
-		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Shoulders<span class="caret"></span></button>
+		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Chestplate<span class="caret"></span></button>
 		<ul class="dropdown-menu">
-		    <li class="dropdown-header">Select Shoulders</li>
-		    <li><a href="#">air_assault</a></li>
+		    <li class="dropdown-header">Select a Chestplate</li>
+		    <li>
+		    	//<a href="#">air_assault</a>
+		    	<button onclick="dewRcon.send("Player.Armor.Chest " + this.innerText)">air_assault</button>
+		    </li>
 		    <li><a href="#">ballista</a></li>
 		    <li><a href="#">chameleon</a></li>
 		    <li><a href="#">cyclops</a></li>
@@ -79,9 +82,9 @@
 		</ul>
             </div>
             <div class="dropdown">
-		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Chestplate<span class="caret"></span></button>
+		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Shoulders<span class="caret"></span></button>
 		<ul class="dropdown-menu">
-		    <li class="dropdown-header">Select a Chestplate</li>
+		    <li class="dropdown-header">Select Shoulders</li>
 		    <li><a href="#">air_assault</a></li>
 		    <li><a href="#">ballista</a></li>
 		    <li><a href="#">chameleon</a></li>
