@@ -173,11 +173,11 @@ var armorTypesUpperLast = [
 function creteTable(bipedPart) {
     var defautID = "#" + bipedPart + "First"
     $(defautID).append(
-        '<th value="' + bipedPart + '" rowspan="2"><button onclick="addTable(' + "'" + bipedPart + "'" + ')" style="display: block; width: 100%; height: 100%;">' + bipedPart + '</button></th>'
+        '<th value="' + bipedPart + '" rowspan="2"><a onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
     );
     for (var i = 0; i < armorTypesLowerFirst.length; i++) {
         $(defautID).append(
-            '<td class="armor' + bipedPart + '" value="' + armorTypesLowerFirst[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperFirst[i] + '</button></td>'
+            '<td class="armor' + bipedPart + '" value="' + armorTypesLowerFirst[i] + '">' + armorTypesUpperFirst[i] + '</td>'
         );
     }
     var defautID = "#" + bipedPart + "Last"
@@ -185,7 +185,7 @@ function creteTable(bipedPart) {
 
     for (var i = 0; i < armorTypesLowerLast.length; i++) {
         $(defautID).append(
-            '<td class="armor' + bipedPart + '" value="' + armorTypesLowerLast[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperLast[i] + '</button></td>'
+            '<td class="armor' + bipedPart + '" value="' + armorTypesLowerLast[i] + '">' + armorTypesUpperLast[i] + '</td>'
         );
     }
 }
