@@ -1,6 +1,11 @@
 body {
     background-color: transparent;
 }
+
+table, th, td {
+    border: 1px solid black;
+}
+
 .SideButtons {
     font-size: 16px;
     font-weight: bold;
@@ -11,8 +16,8 @@ body {
 .armorArms, .armorChest, .armorHelmet, .armorLegs, .armorShoulders{
     font-size: 14px;
     font-weight: lighter;
-    width: 100px;
-    height: 30px;
+    min-width: 100px;
+    min-height: 30px;
 }
 
 .armorArms, .armorChest, .armorHelmet, .armorLegs, .armorShoulders, .SideButtons {
