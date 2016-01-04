@@ -1,3 +1,46 @@
+function getArmor(bipedPart) {
+    dewRcon.send('Player.Armor.' + bipedPart);
+    return dewRcon.lastMessage;
+}
+function getColor(detailType) {
+    dewRcon.send('Player.Colors.' + detailType);
+    return dewRcon.lastMessage;
+}
+function getSetColor(detailType) {
+    getColor(detailType);
+    function setTextColor(){
+        $('#Colors').append(
+            '<a id="' + detailType + 'Color" style="color: ' + dewRcon.lastMessage + '">' + detailType + 'Color</a>'
+        );
+    }
+    setTimeout(setTextColor, 1000);
+}
+function setArmor(bipedPart, armorType) {
+    dewRcon.send('Player.Armor.' + bipedPart + ' ' + armorType);
+}
+function setColor(bipedPart, colorHex) {
+    dewRcon.send('Player.Colors.' + bipedPart + ' ' + colorHex);
+
+    var ID = '#' + bipedPart + 'Color';
+    $(ID).attr('style', 'color: ' + getColor(bipedPart));
+}
+function getAll() {
+    function initialize() {
+        getArmor('Arms');
+        getArmor('Chest');
+        getArmor('Helmet');
+        getArmor('Legs');
+        getArmor('Shoulders');
+        getColor('Holo');
+        setTimeout(getColor('Lights'), 1000);
+        setTimeout(getColor('Primary'), 1500);
+        setTimeout(getColor('Secondary'), 2000);
+        setTimeout(getColor('Visor'), 2500);
+    }
+//'<tbody><tr><th id="Colors"></th><td>Primary Color<input type="color" id="myColor" value="#ff0080"></td><td>Primary Color<input type="color" id="myColor" value="#ff0080"></td></tr></tbody>'
+    setTimeout(initialize, 3000);
+}
+
 function addTable(bipedPart) {
     if (bipedPart == "Arms") {
         $('.armorArms').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
@@ -36,69 +79,6 @@ function delTable(bipedPart) {
     } else {
     }
 }
-function getArmor(bipedPart) {
-    dewRcon.send('Player.Armor.' + bipedPart);
-}
-function getColor(colorType) {
-    dewRcon.send('Player.Colors.' + colorType);
-    document.getElementById('HoloColor').jscolor.fromString(dewRcon.lastMessage);
-}
-
-function setArmor(bipedPart, armorType) {
-    dewRcon.send('Player.Armor.' + bipedPart + ' ' + armorType);
-}
-function setColor(bipedPart, colorHex) {
-    dewRcon.send('Player.Colors.' + bipedPart + ' ' + colorHex);
-}
-
-function getAll() {
-    function initialize() {
-        getArmor('Arms');
-        getArmor('Chest');
-        getArmor('Helmet');
-        getArmor('Legs');
-        getArmor('Shoulders');
-
-        getColor('Holo');
-        document.getElementById('HoloColor').jscolor.fromString(dewRcon.lastMessage);
-        function HoloColor() {
-            var cw = Raphael.colorwheel($('#HoloColor .colorwheel')[0], 150);
-            cw.input($('#HoloColor input')[0]);
-        }
-
-        getColor('Lights');
-        document.getElementById('LightsColor').jscolor.fromString(dewRcon.lastMessage);
-        function LightsColor() {
-            var cw = Raphael.colorwheel($('#LightsColor .colorwheel')[0], 150);
-            cw.input($('#LightsColor input')[0]);
-        }
-
-        getColor('Primary');
-        document.getElementById('PrimaryColor').jscolor.fromString(dewRcon.lastMessage);
-        function PrimaryColor() {
-            var cw = Raphael.colorwheel($('#PrimaryColor .colorwheel')[0], 150);
-            cw.input($('#PrimaryColor input')[0]);
-        }
-
-        getColor('Secondary');
-        document.getElementById('SecondaryColor').jscolor.fromString(dewRcon.lastMessage);
-        function SecondaryColor() {
-            var cw = Raphael.colorwheel($('#SecondaryColor .colorwheel')[0], 150);
-            cw.input($('#SecondaryColor input')[0]);
-        }
-
-        getColor('Visor');
-        document.getElementById('VisorColor').jscolor.fromString(dewRcon.lastMessage);
-        function VisorColor() {
-            var cw = Raphael.colorwheel($('#VisorColor .colorwheel')[0], 150);
-            cw.input($('#VisorColor input')[0]);
-        }
-    }
-
-    setTimeout(initialize, 3000);
-}
-
-
 var armorTypesLowerFirst = [
     "air_assault", "ballista", "chameleon", "cyclops", "demo", "dutch", "gladiator",
     "gungnir", "halberd", "hammerhead", "hoplite", "juggernaut", "mac"
@@ -115,61 +95,6 @@ var armorTypesUpperLast = [
     "Mercenary", "Ni-Hard", "Omni", "Oracle", "Orbital", "Renegade", "Scanner",
     "Shark", "Silverback", "Spectrum", "Stealth", "Strider", "Widow Maker"
 ];
-
-/*
- function createTable() {
- for (var i = 0; i < armorTypesLowerFirst.length; i++) {
- $('#ArmsFirst').append(
- '<td class="armorArms" value="' + armorTypesLowerFirst[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperFirst[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerLast.length; i++) {
- $('#ArmsLast').append(
- '<td class="armorArms" value="' + armorTypesLowerLast[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperLast[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerFirst.length; i++) {
- $('#ChestFirst').append(
- '<td class="armorChest" value="' + armorTypesLowerFirst[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperFirst[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerLast.length; i++) {
- $('#ChestLast').append(
- '<td class="armorChest" value="' + armorTypesLowerLast[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperLast[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerFirst.length; i++) {
- $('#HelmetFirst').append(
- '<td class="armorHelmet" value="' + armorTypesLowerFirst[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperFirst[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerLast.length; i++) {
- $('#HelmetLast').append(
- '<td class="armorHelmet" value="' + armorTypesLowerLast[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperLast[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerFirst.length; i++) {
- $('#LegsFirst').append(
- '<td class="armorLegs" value="' + armorTypesLowerFirst[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperFirst[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerLast.length; i++) {
- $('#LegsLast').append(
- '<td class="armorLegs" value="' + armorTypesLowerLast[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperLast[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerFirst.length; i++) {
- $('#ShouldersFirst').append(
- '<td class="armorShoulders" value="' + armorTypesLowerFirst[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperFirst[i] + '</button></td>'
- )
- }
- for (var i = 0; i < armorTypesLowerLast.length; i++) {
- $('#ShouldersLast').append(
- '<td class="armorShoulders" value="' + armorTypesLowerLast[i] + '"><button style="display: block; width: 100%;">' + armorTypesUpperLast[i] + '</button></td>'
- )
- }
- }*/
-
 function creteTable(bipedPart) {
     var defautID = "#" + bipedPart + "First"
     $(defautID).append(
@@ -189,8 +114,7 @@ function creteTable(bipedPart) {
         );
     }
 }
-
-function createFullTable() {
+function fillTable() {
     var Arms = '<tr id="title"></tr><tr id="ArmsFirst"></tr><tr id="ArmsLast"></tr>'
     var Chest = '<tr id="ChestFirst"></tr><tr id="ChestLast"></tr>'
     var Helmet = '<tr id="HelmetFirst"></tr><tr id="HelmetLast"></tr>'
