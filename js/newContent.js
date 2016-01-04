@@ -173,8 +173,7 @@ var armorTypesUpperLast = [
 function creteTable(bipedPart) {
     var defautID = "#" + bipedPart + "First"
     $(defautID).append(
-        '<th value="' + bipedPart + '" rowspan="2" onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">bipedPart</a></th>'
-    );
+        '<th value="' + bipedPart + '" rowspan="2"><a onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
     for (var i = 0; i < armorTypesLowerFirst.length; i++) {
         $(defautID).append(
             '<td class="armor' + bipedPart + '" value="' + armorTypesLowerFirst[i] + '">' + armorTypesUpperFirst[i] + '</td>'
