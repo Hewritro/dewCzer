@@ -1,204 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Spartan Customizer</title>
-    <!-- Includes -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://jscolor.com/release/2.0/jscolor-2.0.4/jscolor.js"></script>
-    <!-- Eldorito Stuff -->
-    <link rel="stylesheet" href="transparent.css">
-    <script src="js/dewRcon.js"></script>
-    <script src="js/armor.js"></script>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body onload="getAll()">
-<table>
-    <tr>
-        <th colspan="14">Armor</th>
-    </tr>
-    <tr>
-        <th rowspan="2">Arms</th>
-        <td onclick="setArmor('Arms', 'air_assault')"><button style="display: block; width: 100%;">Air Assault</button></td>
-        <td onclick="setArmor('Arms', 'ballista')"><button style="display: block; width: 100%;">Ballista</button></td>
-        <td onclick="setArmor('Arms', 'chameleon')"><button style="display: block; width: 100%;">Chameleon</button></td>
-        <td onclick="setArmor('Arms', 'cyclops')"><button style="display: block; width: 100%;">Cyclops</button></td>
-        <td onclick="setArmor('Arms', 'demo')"><button style="display: block; width: 100%;">Demo</button></td>
-        <td onclick="setArmor('Arms', 'dutch')"><button style="display: block; width: 100%;">Dutch</button></td>
-        <td onclick="setArmor('Arms', 'gladiator')"><button style="display: block; width: 100%;">Gladiator</button></td>
-        <td onclick="setArmor('Arms', 'gungnir')"><button style="display: block; width: 100%;">Gungnir</button></td>
-        <td onclick="setArmor('Arms', 'halberd')"><button style="display: block; width: 100%;">Halberd</button></td>
-        <td onclick="setArmor('Arms', 'hammerhead')"><button style="display: block; width: 100%;">Hammerhead</button></td>
-        <td onclick="setArmor('Arms', 'hoplite')"><button style="display: block; width: 100%;">Hoplite</button></td>
-        <td onclick="setArmor('Arms', 'juggernaut')"><button style="display: block; width: 100%;">Juggernaut</button></td>
-        <td onclick="setArmor('Arms', 'mac')"><button style="display: block; width: 100%;">Mac</button></td>
-    </tr>
-    <tr>
-        <td onclick="setArmor('Arms', 'mercenary')"><button style="display: block; width: 100%;">Mercenary</button></td>
-        <td onclick="setArmor('Arms', 'nihard')"><button style="display: block; width: 100%;">Ni-Hard</button></td>
-        <td onclick="setArmor('Arms', 'omni')"><button style="display: block; width: 100%;">Omni</button></td>
-        <td onclick="setArmor('Arms', 'oracle')"><button style="display: block; width: 100%;">Oracle</button></td>
-        <td onclick="setArmor('Arms', 'orbital')"><button style="display: block; width: 100%;">Orbital</button></td>
-        <td onclick="setArmor('Arms', 'renegade')"><button style="display: block; width: 100%;">Renegade</button></td>
-        <td onclick="setArmor('Arms', 'scanner')"><button style="display: block; width: 100%;">Scanner</button></td>
-        <td onclick="setArmor('Arms', 'shark')"><button style="display: block; width: 100%;">Shark</button></td>
-        <td onclick="setArmor('Arms', 'silverback')"><button style="display: block; width: 100%;">Silverback</button></td>
-        <td onclick="setArmor('Arms', 'spectrum')"><button style="display: block; width: 100%;">Spectrum</button></td>
-        <td onclick="setArmor('Arms', 'stealth')"><button style="display: block; width: 100%;">Stealth</button></td>
-        <td onclick="setArmor('Arms', 'strider')"><button style="display: block; width: 100%;">Strider</button></td>
-        <td onclick="setArmor('Arms', 'widow_maker')"><button style="display: block; width: 100%;">Widow Maker</button></td>
-    </tr>
-    <tr>
-        <th rowspan="2">Chest</th>
-        <td onclick="setArmor('Chest', 'air_assault')"><button style="display: block; width: 100%;">Air Assault</button></td>
-        <td onclick="setArmor('Chest', 'ballista')"><button style="display: block; width: 100%;">Ballista</button></td>
-        <td onclick="setArmor('Chest', 'chameleon')"><button style="display: block; width: 100%;">Chameleon</button></td>
-        <td onclick="setArmor('Chest', 'cyclops')"><button style="display: block; width: 100%;">Cyclops</button></td>
-        <td onclick="setArmor('Chest', 'demo')"><button style="display: block; width: 100%;">Demo</button></td>
-        <td onclick="setArmor('Chest', 'dutch')"><button style="display: block; width: 100%;">Dutch</button></td>
-        <td onclick="setArmor('Chest', 'gladiator')"><button style="display: block; width: 100%;">Gladiator</button></td>
-        <td onclick="setArmor('Chest', 'gungnir')"><button style="display: block; width: 100%;">Gungnir</button></td>
-        <td onclick="setArmor('Chest', 'halberd')"><button style="display: block; width: 100%;">Halberd</button></td>
-        <td onclick="setArmor('Chest', 'hammerhead')"><button style="display: block; width: 100%;">Hammerhead</button></td>
-        <td onclick="setArmor('Chest', 'hoplite')"><button style="display: block; width: 100%;">Hoplite</button></td>
-        <td onclick="setArmor('Chest', 'juggernaut')"><button style="display: block; width: 100%;">Juggernaut</button></td>
-        <td onclick="setArmor('Chest', 'mac')"><button style="display: block; width: 100%;">Mac</button></td>
-    </tr>
-    <tr>
-        <td onclick="setArmor('Chest', 'mercenary')"><button style="display: block; width: 100%;">Mercenary</button></td>
-        <td onclick="setArmor('Chest', 'nihard')"><button style="display: block; width: 100%;">Ni-Hard</button></td>
-        <td onclick="setArmor('Chest', 'omni')"><button style="display: block; width: 100%;">Omni</button></td>
-        <td onclick="setArmor('Chest', 'oracle')"><button style="display: block; width: 100%;">Oracle</button></td>
-        <td onclick="setArmor('Chest', 'orbital')"><button style="display: block; width: 100%;">Orbital</button></td>
-        <td onclick="setArmor('Chest', 'renegade')"><button style="display: block; width: 100%;">Renegade</button></td>
-        <td onclick="setArmor('Chest', 'scanner')"><button style="display: block; width: 100%;">Scanner</button></td>
-        <td onclick="setArmor('Chest', 'shark')"><button style="display: block; width: 100%;">Shark</button></td>
-        <td onclick="setArmor('Chest', 'silverback')"><button style="display: block; width: 100%;">Silverback</button></td>
-        <td onclick="setArmor('Chest', 'spectrum')"><button style="display: block; width: 100%;">Spectrum</button></td>
-        <td onclick="setArmor('Chest', 'stealth')"><button style="display: block; width: 100%;">Stealth</button></td>
-        <td onclick="setArmor('Chest', 'strider')"><button style="display: block; width: 100%;">Strider</button></td>
-        <td onclick="setArmor('Chest', 'widow_maker')"><button style="display: block; width: 100%;">Widow Maker</button></td>
-    </tr>
-    <tr>
-        <th rowspan="2">Helmet</th>
-        <td onclick="setArmor('Helmet', 'air_assault')"><button style="display: block; width: 100%;">Air Assault</button></td>
-        <td onclick="setArmor('Helmet', 'ballista')"><button style="display: block; width: 100%;">Ballista</button></td>
-        <td onclick="setArmor('Helmet', 'chameleon')"><button style="display: block; width: 100%;">Chameleon</button></td>
-        <td onclick="setArmor('Helmet', 'cyclops')"><button style="display: block; width: 100%;">Cyclops</button></td>
-        <td onclick="setArmor('Helmet', 'demo')"><button style="display: block; width: 100%;">Demo</button></td>
-        <td onclick="setArmor('Helmet', 'dutch')"><button style="display: block; width: 100%;">Dutch</button></td>
-        <td onclick="setArmor('Helmet', 'gladiator')"><button style="display: block; width: 100%;">Gladiator</button></td>
-        <td onclick="setArmor('Helmet', 'gungnir')"><button style="display: block; width: 100%;">Gungnir</button></td>
-        <td onclick="setArmor('Helmet', 'halberd')"><button style="display: block; width: 100%;">Halberd</button></td>
-        <td onclick="setArmor('Helmet', 'hammerhead')"><button style="display: block; width: 100%;">Hammerhead</button></td>
-        <td onclick="setArmor('Helmet', 'hoplite')"><button style="display: block; width: 100%;">Hoplite</button></td>
-        <td onclick="setArmor('Helmet', 'juggernaut')"><button style="display: block; width: 100%;">Juggernaut</button></td>
-        <td onclick="setArmor('Helmet', 'mac')"><button style="display: block; width: 100%;">Mac</button></td>
-    </tr>
-    <tr>
-        <td onclick="setArmor('Helmet', 'mercenary')"><button style="display: block; width: 100%;">Mercenary</button></td>
-        <td onclick="setArmor('Helmet', 'nihard')"><button style="display: block; width: 100%;">Ni-Hard</button></td>
-        <td onclick="setArmor('Helmet', 'omni')"><button style="display: block; width: 100%;">Omni</button></td>
-        <td onclick="setArmor('Helmet', 'oracle')"><button style="display: block; width: 100%;">Oracle</button></td>
-        <td onclick="setArmor('Helmet', 'orbital')"><button style="display: block; width: 100%;">Orbital</button></td>
-        <td onclick="setArmor('Helmet', 'renegade')"><button style="display: block; width: 100%;">Renegade</button></td>
-        <td onclick="setArmor('Helmet', 'scanner')"><button style="display: block; width: 100%;">Scanner</button></td>
-        <td onclick="setArmor('Helmet', 'shark')"><button style="display: block; width: 100%;">Shark</button></td>
-        <td onclick="setArmor('Helmet', 'silverback')"><button style="display: block; width: 100%;">Silverback</button></td>
-        <td onclick="setArmor('Helmet', 'spectrum')"><button style="display: block; width: 100%;">Spectrum</button></td>
-        <td onclick="setArmor('Helmet', 'stealth')"><button style="display: block; width: 100%;">Stealth</button></td>
-        <td onclick="setArmor('Helmet', 'strider')"><button style="display: block; width: 100%;">Strider</button></td>
-        <td onclick="setArmor('Helmet', 'widow_maker')"><button style="display: block; width: 100%;">Widow Maker</button></td>
-    </tr>
-    <tr>
-        <th rowspan="2">Legs</th>
-        <td onclick="setArmor('Legs', 'air_assault')"><button style="display: block; width: 100%;">Air Assault</button></td>
-        <td onclick="setArmor('Legs', 'ballista')"><button style="display: block; width: 100%;">Ballista</button></td>
-        <td onclick="setArmor('Legs', 'chameleon')"><button style="display: block; width: 100%;">Chameleon</button></td>
-        <td onclick="setArmor('Legs', 'cyclops')"><button style="display: block; width: 100%;">Cyclops</button></td>
-        <td onclick="setArmor('Legs', 'demo')"><button style="display: block; width: 100%;">Demo</button></td>
-        <td onclick="setArmor('Legs', 'dutch')"><button style="display: block; width: 100%;">Dutch</button></td>
-        <td onclick="setArmor('Legs', 'gladiator')"><button style="display: block; width: 100%;">Gladiator</button></td>
-        <td onclick="setArmor('Legs', 'gungnir')"><button style="display: block; width: 100%;">Gungnir</button></td>
-        <td onclick="setArmor('Legs', 'halberd')"><button style="display: block; width: 100%;">Halberd</button></td>
-        <td onclick="setArmor('Legs', 'hammerhead')"><button style="display: block; width: 100%;">Hammerhead</button></td>
-        <td onclick="setArmor('Legs', 'hoplite')"><button style="display: block; width: 100%;">Hoplite</button></td>
-        <td onclick="setArmor('Legs', 'juggernaut')"><button style="display: block; width: 100%;">Juggernaut</button></td>
-        <td onclick="setArmor('Legs', 'mac')"><button style="display: block; width: 100%;">Mac</button></td>
-    </tr>
-    <tr>
-        <td onclick="setArmor('Legs', 'mercenary')"><button style="display: block; width: 100%;">Mercenary</button></td>
-        <td onclick="setArmor('Legs', 'nihard')"><button style="display: block; width: 100%;">Ni-Hard</button></td>
-        <td onclick="setArmor('Legs', 'omni')"><button style="display: block; width: 100%;">Omni</button></td>
-        <td onclick="setArmor('Legs', 'oracle')"><button style="display: block; width: 100%;">Oracle</button></td>
-        <td onclick="setArmor('Legs', 'orbital')"><button style="display: block; width: 100%;">Orbital</button></td>
-        <td onclick="setArmor('Legs', 'renegade')"><button style="display: block; width: 100%;">Renegade</button></td>
-        <td onclick="setArmor('Legs', 'scanner')"><button style="display: block; width: 100%;">Scanner</button></td>
-        <td onclick="setArmor('Legs', 'shark')"><button style="display: block; width: 100%;">Shark</button></td>
-        <td onclick="setArmor('Legs', 'silverback')"><button style="display: block; width: 100%;">Silverback</button></td>
-        <td onclick="setArmor('Legs', 'spectrum')"><button style="display: block; width: 100%;">Spectrum</button></td>
-        <td onclick="setArmor('Legs', 'stealth')"><button style="display: block; width: 100%;">Stealth</button></td>
-        <td onclick="setArmor('Legs', 'strider')"><button style="display: block; width: 100%;">Strider</button></td>
-        <td onclick="setArmor('Legs', 'widow_maker')"><button style="display: block; width: 100%;">Widow Maker</button></td>
-    </tr>
-    <tr>
-        <th rowspan="2">Shoulders</th>
-        <td onclick="setArmor('Shoulders', 'air_assault')"><button style="display: block; width: 100%;">Air Assault</button></td>
-        <td onclick="setArmor('Shoulders', 'ballista')"><button style="display: block; width: 100%;">Ballista</button></td>
-        <td onclick="setArmor('Shoulders', 'chameleon')"><button style="display: block; width: 100%;">Chameleon</button></td>
-        <td onclick="setArmor('Shoulders', 'cyclops')"><button style="display: block; width: 100%;">Cyclops</button></td>
-        <td onclick="setArmor('Shoulders', 'demo')"><button style="display: block; width: 100%;">Demo</button></td>
-        <td onclick="setArmor('Shoulders', 'dutch')"><button style="display: block; width: 100%;">Dutch</button></td>
-        <td onclick="setArmor('Shoulders', 'gladiator')"><button style="display: block; width: 100%;">Gladiator</button></td>
-        <td onclick="setArmor('Shoulders', 'gungnir')"><button style="display: block; width: 100%;">Gungnir</button></td>
-        <td onclick="setArmor('Shoulders', 'halberd')"><button style="display: block; width: 100%;">Halberd</button></td>
-        <td onclick="setArmor('Shoulders', 'hammerhead')"><button style="display: block; width: 100%;">Hammerhead</button></td>
-        <td onclick="setArmor('Shoulders', 'hoplite')"><button style="display: block; width: 100%;">Hoplite</button></td>
-        <td onclick="setArmor('Shoulders', 'juggernaut')"><button style="display: block; width: 100%;">Juggernaut</button></td>
-        <td onclick="setArmor('Shoulders', 'mac')"><button style="display: block; width: 100%;">Mac</button></td>
-    </tr>
-    <tr>
-        <td onclick="setArmor('Shoulders', 'mercenary')"><button style="display: block; width: 100%;">Mercenary</button></td>
-        <td onclick="setArmor('Shoulders', 'nihard')"><button style="display: block; width: 100%;">Ni-Hard</button></td>
-        <td onclick="setArmor('Shoulders', 'omni')"><button style="display: block; width: 100%;">Omni</button></td>
-        <td onclick="setArmor('Shoulders', 'oracle')"><button style="display: block; width: 100%;">Oracle</button></td>
-        <td onclick="setArmor('Shoulders', 'orbital')"><button style="display: block; width: 100%;">Orbital</button></td>
-        <td onclick="setArmor('Shoulders', 'renegade')"><button style="display: block; width: 100%;">Renegade</button></td>
-        <td onclick="setArmor('Shoulders', 'scanner')"><button style="display: block; width: 100%;">Scanner</button></td>
-        <td onclick="setArmor('Shoulders', 'shark')"><button style="display: block; width: 100%;">Shark</button></td>
-        <td onclick="setArmor('Shoulders', 'silverback')"><button style="display: block; width: 100%;">Silverback</button></td>
-        <td onclick="setArmor('Shoulders', 'spectrum')"><button style="display: block; width: 100%;">Spectrum</button></td>
-        <td onclick="setArmor('Shoulders', 'stealth')"><button style="display: block; width: 100%;">Stealth</button></td>
-        <td onclick="setArmor('Shoulders', 'strider')"><button style="display: block; width: 100%;">Strider</button></td>
-        <td onclick="setArmor('Shoulders', 'widow_maker')"><button style="display: block; width: 100%;">Widow Maker</button></td>
-    </tr>
-    <tr>
-        <td colspan="3">
-            Holo Color
-            <br><input id="HoloColor" class="" value="">
-        </td>
-        <td colspan="3">
-            Lights Color
-            <br><input id="LightsColor" class="jscolor" value="">
-        </td>
-        <td rowspan="2" colspan="3">
-            Primary Color
-            <br><input id="primaryColor" class="jscolor" value="">
-        </td>
-        <td colspan="3">
-            Secondary Color
-            <br><input id="SecondaryColor" class="jscolor" value="">
-        </td>
-        <td colspan="3">
-            Visor Color
-            <br><input id="VisorColor" class="jscolor" value="">
-        </td>
-    </tr>
-</table>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Spartan Customizer</title>
+        <!-- Includes -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://jscolor.com/release/2.0/jscolor-2.0.4/jscolor.js"></script>
+        -->
+        <script src="js/jquery.2.1.4.js"></script>
+        <script src="js/raphael.js"></script>
+
+        <!-- Eldorito Stuff -->
+        <link rel="stylesheet" href="css/styleSheet.css">
+        <script src="js/dewRcon.js"></script>
+        <script src="js/newContent.js"></script>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+           }
+       </style>
+    </head>
+    <body onload="createFullTable()">
+        <table id="table"></table>
+    </body>
 </html>
