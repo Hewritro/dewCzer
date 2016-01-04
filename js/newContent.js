@@ -1,3 +1,19 @@
+Skip to content
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @theTwist84
+ Unwatch 1
+  Star 0
+ Fork 1 Hewritro/dewCzer
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Tree: fbc2f548fc Find file Copy pathdewCzer/js/newContent.js
+fbc2f54  an hour ago
+@theTwist84 theTwist84 Update newContent.js
+1 contributor
+RawBlameHistory     210 lines (192 sloc)  8.65 KB
 function addTable(bipedPart) {
     if (bipedPart == "Arms") {
         $('.armorArms').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
@@ -174,6 +190,7 @@ function creteTable(bipedPart) {
     var defautID = "#" + bipedPart + "First"
     $(defautID).append(
         '<th value="' + bipedPart + '" rowspan="2"><a onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
+    );
     for (var i = 0; i < armorTypesLowerFirst.length; i++) {
         $(defautID).append(
             '<td class="armor' + bipedPart + '" value="' + armorTypesLowerFirst[i] + '">' + armorTypesUpperFirst[i] + '</td>'
@@ -206,3 +223,5 @@ function createFullTable() {
     creteTable("Legs")
     creteTable("Shoulders")
 }
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
