@@ -1,165 +1,204 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	<meta charset="utf-8">
-	    <title>Spartan Customizer</title>
-	    <!-- Includes -->
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	    <!-- Eldorito Stuff -->
-	    <link rel="stylesheet" href="css/transparent.css">
-	    <script src="js/dewRcon.js"></script>
-    </head>
-    <body>
-        <table>
-          <tr>
-            <th colspan="27">Armor</th>
-          </tr>
-          <tr>
-            <th>Arms</th>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">air_assault</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">ballista</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">chameleon</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">cyclops</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">demo</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">dutch</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">gladiator</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">gungnir</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">halberd</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">hammerhead</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">hoplite</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">juggernaut</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">mac</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">mercenary</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">nihard</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">omni</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">oracle</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">orbital</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">renegade</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">scanner</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">shark</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">silverback</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">spectrum</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">stealth</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">strider</td>
-            <td onclick="dewRcon.send('Player.Armor.Arms ' + this.innerText)">widow_maker</td>
-          </tr>
-          <tr>
-            <th>Chest</th>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">air_assault</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">ballista</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">chameleon</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">cyclops</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">demo</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">dutch</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">gladiator</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">gungnir</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">halberd</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">hammerhead</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">hoplite</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">juggernaut</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">mac</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">mercenary</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">nihard</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">omni</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">oracle</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">orbital</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">renegade</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">scanner</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">shark</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">silverback</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">spectrum</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">stealth</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">strider</td>
-            <td onclick="dewRcon.send('Player.Armor.Chest ' + this.innerText)">widow_maker</td>
-          </tr>
-          <tr>
-            <th>Helmet</th>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">air_assault</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">ballista</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">chameleon</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">cyclops</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">demo</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">dutch</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">gladiator</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">gungnir</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">halberd</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">hammerhead</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">hoplite</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">juggernaut</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">mac</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">mercenary</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">nihard</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">omni</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">oracle</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">orbital</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">renegade</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">scanner</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">shark</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">silverback</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">spectrum</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">stealth</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">strider</td>
-            <td onclick="dewRcon.send('Player.Armor.Helmet ' + this.innerText)">widow_maker</td>
-          </tr>
-          <tr>
-            <th>Legs</th>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">air_assault</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">ballista</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">chameleon</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">cyclops</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">demo</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">dutch</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">gladiator</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">gungnir</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">halberd</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">hammerhead</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">hoplite</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">juggernaut</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">mac</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">mercenary</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">nihard</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">omni</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">oracle</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">orbital</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">renegade</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">scanner</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">shark</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">silverback</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">spectrum</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">stealth</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">strider</td>
-            <td onclick="dewRcon.send('Player.Armor.Legs ' + this.innerText)">widow_maker</td>
-          </tr>
-          <tr>
-            <th>Shoulders</th>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">air_assault</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">ballista</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">chameleon</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">cyclops</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">demo</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">dutch</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">gladiator</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">gungnir</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">halberd</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">hammerhead</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">hoplite</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">juggernaut</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">mac</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">mercenary</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">nihard</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">omni</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">oracle</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">orbital</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">renegade</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">scanner</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">shark</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">silverback</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">spectrum</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">stealth</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">strider</td>
-            <td onclick="dewRcon.send('Player.Armor.Shoulders ' + this.innerText)">widow_maker</td>
-          </tr>
-        </table>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Spartan Customizer</title>
+    <!-- Includes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://jscolor.com/release/2.0/jscolor-2.0.4/jscolor.js"></script>
+    <!-- Eldorito Stuff -->
+    <link rel="stylesheet" href="transparent.css">
+    <script src="js/dewRcon.js"></script>
+    <script src="js/armor.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload="getAll()">
+<table>
+    <tr>
+        <th colspan="14">Armor</th>
+    </tr>
+    <tr>
+        <th rowspan="2">Arms</th>
+        <td onclick="setArmor('Arms', 'air_assault')">Air Assault</td>
+        <td onclick="setArmor('Arms', 'ballista')">Ballista</td>
+        <td onclick="setArmor('Arms', 'chameleon')">Chameleon</td>
+        <td onclick="setArmor('Arms', 'cyclops')">Cyclops</td>
+        <td onclick="setArmor('Arms', 'demo')">Demo</td>
+        <td onclick="setArmor('Arms', 'dutch')">Dutch</td>
+        <td onclick="setArmor('Arms', 'gladiator')">Gladiator</td>
+        <td onclick="setArmor('Arms', 'gungnir')">Gungnir</td>
+        <td onclick="setArmor('Arms', 'halberd')">Halberd</td>
+        <td onclick="setArmor('Arms', 'hammerhead')">Hammerhead</td>
+        <td onclick="setArmor('Arms', 'hoplite')">Hoplite</td>
+        <td onclick="setArmor('Arms', 'juggernaut')">Juggernaut</td>
+        <td onclick="setArmor('Arms', 'mac')">Mac</td>
+    </tr>
+    <tr>
+        <td onclick="setArmor('Arms', 'mercenary')">Mercenary</td>
+        <td onclick="setArmor('Arms', 'nihard')">Ni-Hard</td>
+        <td onclick="setArmor('Arms', 'omni')">Omni</td>
+        <td onclick="setArmor('Arms', 'oracle')">Oracle</td>
+        <td onclick="setArmor('Arms', 'orbital')">Orbital</td>
+        <td onclick="setArmor('Arms', 'renegade')">Renegade</td>
+        <td onclick="setArmor('Arms', 'scanner')">Scanner</td>
+        <td onclick="setArmor('Arms', 'shark')">Shark</td>
+        <td onclick="setArmor('Arms', 'silverback')">Silverback</td>
+        <td onclick="setArmor('Arms', 'spectrum')">Spectrum</td>
+        <td onclick="setArmor('Arms', 'stealth')">Stealth</td>
+        <td onclick="setArmor('Arms', 'strider')">Strider</td>
+        <td onclick="setArmor('Arms', 'widow_maker')">Widow Maker</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Chest</th>
+        <td onclick="setArmor('Chest', 'air_assault')">Air Assault</td>
+        <td onclick="setArmor('Chest', 'ballista')">Ballista</td>
+        <td onclick="setArmor('Chest', 'chameleon')">Chameleon</td>
+        <td onclick="setArmor('Chest', 'cyclops')">Cyclops</td>
+        <td onclick="setArmor('Chest', 'demo')">Demo</td>
+        <td onclick="setArmor('Chest', 'dutch')">Dutch</td>
+        <td onclick="setArmor('Chest', 'gladiator')">Gladiator</td>
+        <td onclick="setArmor('Chest', 'gungnir')">Gungnir</td>
+        <td onclick="setArmor('Chest', 'halberd')">Halberd</td>
+        <td onclick="setArmor('Chest', 'hammerhead')">Hammerhead</td>
+        <td onclick="setArmor('Chest', 'hoplite')">Hoplite</td>
+        <td onclick="setArmor('Chest', 'juggernaut')">Juggernaut</td>
+        <td onclick="setArmor('Chest', 'mac')">Mac</td>
+    </tr>
+    <tr>
+        <td onclick="setArmor('Chest', 'mercenary')">Mercenary</td>
+        <td onclick="setArmor('Chest', 'nihard')">Ni-Hard</td>
+        <td onclick="setArmor('Chest', 'omni')">Omni</td>
+        <td onclick="setArmor('Chest', 'oracle')">Oracle</td>
+        <td onclick="setArmor('Chest', 'orbital')">Orbital</td>
+        <td onclick="setArmor('Chest', 'renegade')">Renegade</td>
+        <td onclick="setArmor('Chest', 'scanner')">Scanner</td>
+        <td onclick="setArmor('Chest', 'shark')">Shark</td>
+        <td onclick="setArmor('Chest', 'silverback')">Silverback</td>
+        <td onclick="setArmor('Chest', 'spectrum')">Spectrum</td>
+        <td onclick="setArmor('Chest', 'stealth')">Stealth</td>
+        <td onclick="setArmor('Chest', 'strider')">Strider</td>
+        <td onclick="setArmor('Chest', 'widow_maker')">Widow Maker</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Helmet</th>
+        <td onclick="setArmor('Helmet', 'air_assault')">Air Assault</td>
+        <td onclick="setArmor('Helmet', 'ballista')">Ballista</td>
+        <td onclick="setArmor('Helmet', 'chameleon')">Chameleon</td>
+        <td onclick="setArmor('Helmet', 'cyclops')">Cyclops</td>
+        <td onclick="setArmor('Helmet', 'demo')">Demo</td>
+        <td onclick="setArmor('Helmet', 'dutch')">Dutch</td>
+        <td onclick="setArmor('Helmet', 'gladiator')">Gladiator</td>
+        <td onclick="setArmor('Helmet', 'gungnir')">Gungnir</td>
+        <td onclick="setArmor('Helmet', 'halberd')">Halberd</td>
+        <td onclick="setArmor('Helmet', 'hammerhead')">Hammerhead</td>
+        <td onclick="setArmor('Helmet', 'hoplite')">Hoplite</td>
+        <td onclick="setArmor('Helmet', 'juggernaut')">Juggernaut</td>
+        <td onclick="setArmor('Helmet', 'mac')">Mac</td>
+    </tr>
+    <tr>
+        <td onclick="setArmor('Helmet', 'mercenary')">Mercenary</td>
+        <td onclick="setArmor('Helmet', 'nihard')">Ni-Hard</td>
+        <td onclick="setArmor('Helmet', 'omni')">Omni</td>
+        <td onclick="setArmor('Helmet', 'oracle')">Oracle</td>
+        <td onclick="setArmor('Helmet', 'orbital')">Orbital</td>
+        <td onclick="setArmor('Helmet', 'renegade')">Renegade</td>
+        <td onclick="setArmor('Helmet', 'scanner')">Scanner</td>
+        <td onclick="setArmor('Helmet', 'shark')">Shark</td>
+        <td onclick="setArmor('Helmet', 'silverback')">Silverback</td>
+        <td onclick="setArmor('Helmet', 'spectrum')">Spectrum</td>
+        <td onclick="setArmor('Helmet', 'stealth')">Stealth</td>
+        <td onclick="setArmor('Helmet', 'strider')">Strider</td>
+        <td onclick="setArmor('Helmet', 'widow_maker')">Widow Maker</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Legs</th>
+        <td onclick="setArmor('Legs', 'air_assault')">Air Assault</td>
+        <td onclick="setArmor('Legs', 'ballista')">Ballista</td>
+        <td onclick="setArmor('Legs', 'chameleon')">Chameleon</td>
+        <td onclick="setArmor('Legs', 'cyclops')">Cyclops</td>
+        <td onclick="setArmor('Legs', 'demo')">Demo</td>
+        <td onclick="setArmor('Legs', 'dutch')">Dutch</td>
+        <td onclick="setArmor('Legs', 'gladiator')">Gladiator</td>
+        <td onclick="setArmor('Legs', 'gungnir')">Gungnir</td>
+        <td onclick="setArmor('Legs', 'halberd')">Halberd</td>
+        <td onclick="setArmor('Legs', 'hammerhead')">Hammerhead</td>
+        <td onclick="setArmor('Legs', 'hoplite')">Hoplite</td>
+        <td onclick="setArmor('Legs', 'juggernaut')">Juggernaut</td>
+        <td onclick="setArmor('Legs', 'mac')">Mac</td>
+    </tr>
+    <tr>
+        <td onclick="setArmor('Legs', 'mercenary')">Mercenary</td>
+        <td onclick="setArmor('Legs', 'nihard')">Ni-Hard</td>
+        <td onclick="setArmor('Legs', 'omni')">Omni</td>
+        <td onclick="setArmor('Legs', 'oracle')">Oracle</td>
+        <td onclick="setArmor('Legs', 'orbital')">Orbital</td>
+        <td onclick="setArmor('Legs', 'renegade')">Renegade</td>
+        <td onclick="setArmor('Legs', 'scanner')">Scanner</td>
+        <td onclick="setArmor('Legs', 'shark')">Shark</td>
+        <td onclick="setArmor('Legs', 'silverback')">Silverback</td>
+        <td onclick="setArmor('Legs', 'spectrum')">Spectrum</td>
+        <td onclick="setArmor('Legs', 'stealth')">Stealth</td>
+        <td onclick="setArmor('Legs', 'strider')">Strider</td>
+        <td onclick="setArmor('Legs', 'widow_maker')">Widow Maker</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Shoulders</th>
+        <td onclick="setArmor('Shoulders', 'air_assault')">Air Assault</td>
+        <td onclick="setArmor('Shoulders', 'ballista')">Ballista</td>
+        <td onclick="setArmor('Shoulders', 'chameleon')">Chameleon</td>
+        <td onclick="setArmor('Shoulders', 'cyclops')">Cyclops</td>
+        <td onclick="setArmor('Shoulders', 'demo')">Demo</td>
+        <td onclick="setArmor('Shoulders', 'dutch')">Dutch</td>
+        <td onclick="setArmor('Shoulders', 'gladiator')">Gladiator</td>
+        <td onclick="setArmor('Shoulders', 'gungnir')">Gungnir</td>
+        <td onclick="setArmor('Shoulders', 'halberd')">Halberd</td>
+        <td onclick="setArmor('Shoulders', 'hammerhead')">Hammerhead</td>
+        <td onclick="setArmor('Shoulders', 'hoplite')">Hoplite</td>
+        <td onclick="setArmor('Shoulders', 'juggernaut')">Juggernaut</td>
+        <td onclick="setArmor('Shoulders', 'mac')">Mac</td>
+    </tr>
+    <tr>
+        <td onclick="setArmor('Shoulders', 'mercenary')">Mercenary</td>
+        <td onclick="setArmor('Shoulders', 'nihard')">Ni-Hard</td>
+        <td onclick="setArmor('Shoulders', 'omni')">Omni</td>
+        <td onclick="setArmor('Shoulders', 'oracle')">Oracle</td>
+        <td onclick="setArmor('Shoulders', 'orbital')">Orbital</td>
+        <td onclick="setArmor('Shoulders', 'renegade')">Renegade</td>
+        <td onclick="setArmor('Shoulders', 'scanner')">Scanner</td>
+        <td onclick="setArmor('Shoulders', 'shark')">Shark</td>
+        <td onclick="setArmor('Shoulders', 'silverback')">Silverback</td>
+        <td onclick="setArmor('Shoulders', 'spectrum')">Spectrum</td>
+        <td onclick="setArmor('Shoulders', 'stealth')">Stealth</td>
+        <td onclick="setArmor('Shoulders', 'strider')">Strider</td>
+        <td onclick="setArmor('Shoulders', 'widow_maker')">Widow Maker</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            Holo Color
+            <br><input id="HoloColor" class="jscolor" value="">
+        </td>
+        <td colspan="3">
+            Lights Color
+            <br><input id="LightsColor" class="jscolor" value="">
+        </td>
+        <td rowspan="2" colspan="3">
+            Primary Color
+            <br><input id="primaryColor" class="jscolor" value="">
+        </td>
+        <td colspan="3">
+            Secondary Color
+            <br><input id="SecondaryColor" class="jscolor" value="">
+        </td>
+        <td colspan="3">
+            Visor Color
+            <br><input id="VisorColor" class="jscolor" value="">
+        </td>
+    </tr>
+</table>
+</body>
 </html>
