@@ -2,6 +2,10 @@ body {
     background-color: transparent;
 }
 
+#title {
+    color: white;
+}
+
 table, th, td {
     border: 1px solid black;
 }
