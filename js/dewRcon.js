@@ -28,8 +28,8 @@ StartRconConnection = function() {
         }
     };
     dewRcon.dewWebSocket.onmessage = function(message) {
-        /*dewRcon.lastMessage = message.data;
-        console.log(dewRcon.lastMessage);
+        dewRcon.lastMessage = message.data;
+        /*console.log(dewRcon.lastMessage);
         console.log(dewRcon.lastCommand);
         console.log(message.data);*/
         return message.data;

@@ -40,44 +40,15 @@ function getAll() {
 //'<tbody><tr><th id="Colors"></th><td>Primary Color<input type="color" id="myColor" value="#ff0080"></td><td>Primary Color<input type="color" id="myColor" value="#ff0080"></td></tr></tbody>'
     setTimeout(initialize, 3000);
 }
-
 function addTable(bipedPart) {
-    if (bipedPart == "Arms") {
-        $('.armorArms').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
-        $('.armorArms').attr('onclick', 'delTable("Arms")')
-    } else if (bipedPart == "Chest") {
-        $('.armorChest').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
-        $('.armorChest').attr('onclick', 'delTable("Chest")')
-    } else if (bipedPart == "Helmet") {
-        $('.armorHelmet').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
-        $('.armorHelmet').attr('onclick', 'delTable("Helmet")')
-    } else if (bipedPart == "Legs") {
-        $('.armorLegs').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
-        $('.armorLegs').attr('onclick', 'delTable("Legs")')
-    } else if (bipedPart == "Shoulders") {
-        $('.armorShoulders').attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))')
-        $('.armorShoulders').attr('onclick', 'delTable("Shoulders")')
-    } else {
-    }
+    var CLASS = '.armor' + bipedPart;
+    $(CLASS).attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))');
+    $(CLASS).attr('onclick', 'delTable("' + bipedPart + '")');
 }
 function delTable(bipedPart) {
-    if (bipedPart == "Arms") {
-        $('.armorArms').removeAttr('onmouseover', '')
-        $('.armorArms').removeAttr('onclick', '')
-    } else if (bipedPart == "Chest") {
-        $('.armorChest').removeAttr('onmouseover', '')
-        $('.armorChest').removeAttr('onclick', '')
-    } else if (bipedPart == "Helmet") {
-        $('.armorHelmet').removeAttr('onmouseover', '')
-        $('.armorHelmet').removeAttr('onclick', '')
-    } else if (bipedPart == "Legs") {
-        $('.armorLegs').removeAttr('onmouseover', '')
-        $('.armorLegs').removeAttr('onclick', '')
-    } else if (bipedPart == "Shoulders") {
-        $('.armorShoulders').removeAttr('onmouseover', '')
-        $('.armorShoulders').removeAttr('onclick', '')
-    } else {
-    }
+    var CLASS = '.armor' + bipedPart;
+        $(CLASS).removeAttr('onmouseover', '')
+        $(CLASS).removeAttr('onclick', '')
 }
 var armorTypesLowerFirst = [
     "air_assault", "ballista", "chameleon", "cyclops", "demo", "dutch", "gladiator",
@@ -95,25 +66,31 @@ var armorTypesUpperLast = [
     "Mercenary", "Ni-Hard", "Omni", "Oracle", "Orbital", "Renegade", "Scanner",
     "Shark", "Silverback", "Spectrum", "Stealth", "Strider", "Widow Maker"
 ];
+var armorTypesLwr = armorTypesLowerFirst + "," + armorTypesLowerLast, armorTypesUpper = armorTypesUpperFirst + "," + armorTypesUpperLast;
+var armorTypesLower = armorTypesLwr.split(",");
+
+
+
 function creteTable(bipedPart) {
-    var defautID = "#" + bipedPart + "First"
-    $(defautID).append(
+    var firstID = "#" + bipedPart + "First"
+    var lastID = "#" + bipedPart + "Last"
+    $(firstID).append(
         '<th value="' + bipedPart + '" rowspan="2"><a onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
     );
     for (var i = 0; i < armorTypesLowerFirst.length; i++) {
-        $(defautID).append(
-            '<td class="armor' + bipedPart + '" value="' + armorTypesLowerFirst[i] + '">' + armorTypesUpperFirst[i] + '</td>'
+        $(firstID).append(
+            '<td class="armor' + bipedPart + ' ' + armorTypesLowerFirst[i] + '" value="' + armorTypesLowerFirst[i] + '">' + armorTypesUpperFirst[i] + '</td>'
         );
     }
-    var defautID = "#" + bipedPart + "Last"
-    $(defautID).append('<th value="' + bipedPart + '" style="display: none"></th>');
+    $(lastID).append('<th value="' + bipedPart + '" style="display: none"></th>');
 
     for (var i = 0; i < armorTypesLowerLast.length; i++) {
-        $(defautID).append(
-            '<td class="armor' + bipedPart + '" value="' + armorTypesLowerLast[i] + '">' + armorTypesUpperLast[i] + '</td>'
+        $(lastID).append(
+            '<td class="armor' + bipedPart + ' ' + armorTypesLowerLast[i] + '" value="' + armorTypesLowerLast[i] + '">' + armorTypesUpperLast[i] + '</td>'
         );
     }
 }
+
 function fillTable() {
     var Arms = '<tr id="title"></tr><tr id="ArmsFirst"></tr><tr id="ArmsLast"></tr>'
     var Chest = '<tr id="ChestFirst"></tr><tr id="ChestLast"></tr>'
