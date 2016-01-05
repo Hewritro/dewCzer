@@ -41,52 +41,52 @@ function getAll() {
     setTimeout(initialize, 3000);
 }
 function addTable(bipedPart) {
+    checkArmor(bipedPart);
     var CLASS = '.armor' + bipedPart;
     $(CLASS).attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))');
     $(CLASS).attr('onclick', 'delTable("' + bipedPart + '")');
 }
 function delTable(bipedPart) {
+    checkArmor(bipedPart);
     var CLASS = '.armor' + bipedPart;
         $(CLASS).removeAttr('onmouseover', '')
         $(CLASS).removeAttr('onclick', '')
 }
-var armorTypesLowerFirst = [
+var armorTypes1D = [
     "air_assault", "ballista", "chameleon", "cyclops", "demo", "dutch", "gladiator",
-    "gungnir", "halberd", "hammerhead", "hoplite", "juggernaut", "mac"
-];
-var armorTypesUpperFirst = [
-    "Air Assault", "Ballista", "Chameleon", "Cyclops", "Demo", "Dutch", "Gladiator",
-    "Gungnir", "Halberd", "Hammerhead", "Hoplite", "Juggernaut", "Mac"
-];
-var armorTypesLowerLast = [
+    "gungnir", "halberd", "hammerhead", "hoplite", "juggernaut", "mac",
     "mercenary", "nihard", "omni", "oracle", "orbital", "renegade", "scanner",
-    "shark", "silverback", "spectrum", "stealth", "strider", "widow_maker"
-];
-var armorTypesUpperLast = [
+    "shark", "silverback", "spectrum", "stealth", "strider", "widow_maker",
+    "Air Assault", "Ballista", "Chameleon", "Cyclops", "Demo", "Dutch", "Gladiator",
+    "Gungnir", "Halberd", "Hammerhead", "Hoplite", "Juggernaut", "Mac",
     "Mercenary", "Ni-Hard", "Omni", "Oracle", "Orbital", "Renegade", "Scanner",
     "Shark", "Silverback", "Spectrum", "Stealth", "Strider", "Widow Maker"
 ];
-var armorTypesLwr = armorTypesLowerFirst + "," + armorTypesLowerLast, armorTypesUpper = armorTypesUpperFirst + "," + armorTypesUpperLast;
-var armorTypesLower = armorTypesLwr.split(",");
-
-
+var createGroupedArray = function(arr, chunkSize) {
+    var groups = [], i;
+    for (i = 0; i < arr.length; i += chunkSize) {
+        groups.push(arr.slice(i, i + chunkSize));
+    }
+    return groups;
+}
+var armorTypes2D = createGroupedArray(armorTypes1D, 13);
 
 function creteTable(bipedPart) {
-    var firstID = "#" + bipedPart + "First"
-    var lastID = "#" + bipedPart + "Last"
+    var firstID = "#" + bipedPart + "First";
+    var lastID = "#" + bipedPart + "Last";
     $(firstID).append(
         '<th value="' + bipedPart + '" rowspan="2"><a onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
     );
-    for (var i = 0; i < armorTypesLowerFirst.length; i++) {
+    for (var i = 0; i < armorTypes2D[0].length; i++) {
         $(firstID).append(
-            '<td class="armor' + bipedPart + ' ' + armorTypesLowerFirst[i] + '" value="' + armorTypesLowerFirst[i] + '">' + armorTypesUpperFirst[i] + '</td>'
+            '<td class="armor' + bipedPart + ' ' + armorTypes2D[0][i] + '" value="' + armorTypes2D[0][i] + '">' + armorTypes2D[2][i] + '</td>'
         );
     }
     $(lastID).append('<th value="' + bipedPart + '" style="display: none"></th>');
 
-    for (var i = 0; i < armorTypesLowerLast.length; i++) {
+    for (var i = 0; i < armorTypes2D[1].length; i++) {
         $(lastID).append(
-            '<td class="armor' + bipedPart + ' ' + armorTypesLowerLast[i] + '" value="' + armorTypesLowerLast[i] + '">' + armorTypesUpperLast[i] + '</td>'
+            '<td class="armor' + bipedPart + ' ' + armorTypes2D[1][i] + '" value="' + armorTypes2D[1][i] + '">' + armorTypes2D[3][i] + '</td>'
         );
     }
 }
@@ -102,9 +102,37 @@ function fillTable() {
 
     $('#title').append('<th colspan="14">Armor</th>');
 
-    creteTable("Arms")
-    creteTable("Chest")
-    creteTable("Helmet")
-    creteTable("Legs")
-    creteTable("Shoulders")
+    creteTable("Arms");
+    creteTable("Chest");
+    creteTable("Helmet");
+    creteTable("Legs");
+    creteTable("Shoulders");
+}
+
+function checkArmor(bipedPart) {
+    clearColor(bipedPart);
+    dewRcon.send("Player.Armor." + bipedPart);
+    dewRcon.dewWebSocket.onmessage = function(message) {
+        //console.log(message.data);
+        for (var i = 0; i < armorTypes2D[0].length; i++) {
+            if (armorTypes2D[0][i] == message.data) {
+                //CLASS = "." + armorTypesLower[i];
+                var CLASS = ".armor" + bipedPart + "." + armorTypes2D[0][i];
+                while ($(CLASS).attr('style') != 'color: blue') {
+                    $(CLASS).attr('style', 'color: blue');
+                }
+            }
+            /* else {
+             console.log(
+             "NOPE"
+             );
+             }*/
+        }
+    }
+}
+function clearColor(bipedPart){
+    for (var i = 0; i < armorTypes2D[0].length; i++) {
+        var CLASS = ".armor" + bipedPart;
+        $(CLASS).attr('style', '');
+    }
 }
