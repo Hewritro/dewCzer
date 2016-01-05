@@ -20,23 +20,23 @@ var armorTypesLwr = armorTypesLowerFirst + "," + armorTypesLowerLast, armorTypes
 var armorTypesLower = armorTypesLwr.split(",");
 
 
-function checkArmor(bipedPart, armorType) {
-
-    for (var i = 0; i < armorTypesLower.length; i++) {
-        if (armorTypesLower[i] == armorType) {
-            //CLASS = "." + armorTypesLower[i];
-            var CLASS = ".armor" + bipedPart + "." + armorTypesLower[i];
-            $(CLASS).attr('style', 'color: blue')
-        }/* else {
-            console.log(
-                "NOPE"
-            );
-        }*/
+function checkArmor(bipedPart) {
+    dewRcon.send("Player.Armor." + bipedPart);
+    dewRcon.dewWebSocket.onmessage = function(message) {
+        //console.log(message.data);
+        for (var i = 0; i < armorTypesLower.length; i++) {
+            if (armorTypesLower[i] == message.data) {
+                //CLASS = "." + armorTypesLower[i];
+                var CLASS = ".armor" + bipedPart + "." + armorTypesLower[i];
+                while ($(CLASS).attr('style') != 'color: blue') {
+                    $(CLASS).attr('style', 'color: blue');
+                }
+            }
+            /* else {
+             console.log(
+             "NOPE"
+             );
+             }*/
+        }
     }
-}
-
-function test(bipedPart) {
-    getArmor(bipedPart);
-    setTimeout(getArmor(bipedPart), 1000);
-    setTimeout(checkArmor(bipedPart, getArmor(bipedPart)), 2000);
 }
