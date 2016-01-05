@@ -1,4 +1,4 @@
-var armorTypes1D = [
+var armorTypes1D = [ // All armor in game names and capitalized names use by this.
     "air_assault", "ballista", "chameleon", "cyclops", "demo", "dutch", "gladiator",
     "gungnir", "halberd", "hammerhead", "hoplite", "juggernaut", "mac",
     "mercenary", "nihard", "omni", "oracle", "orbital", "renegade", "scanner",
@@ -8,68 +8,66 @@ var armorTypes1D = [
     "Mercenary", "Ni-Hard", "Omni", "Oracle", "Orbital", "Renegade", "Scanner",
     "Shark", "Silverback", "Spectrum", "Stealth", "Strider", "Widow Maker"
 ];
-function getArmor(bipedPart) {
-    dewRcon.send('Player.Armor.' + bipedPart);
+function getArmor(bipedPart) { // Specifies the armor equipped currently.
+    dewRcon.send('Player.Armor.' + bipedPart); // Isn't used may rewrite
     return dewRcon.lastMessage;
 }
-function getColor(detailType) {
-    dewRcon.send('Player.Colors.' + detailType);
+function getColor(detailType) { // Specifies the color equipped currently.
+    dewRcon.send('Player.Colors.' + detailType); // Isn't used may rewrite
     return dewRcon.lastMessage;
 }
-function setArmor(bipedPart, armorType) {
+function setArmor(bipedPart, armorType) { // Sets the armor to be equipped as specified.
     dewRcon.send('Player.Armor.' + bipedPart + ' ' + armorType);
 }
-function clearSelected(bipedPart) {
-    for (var i = 0; i < armorTypes2D.length; i++) {
-        for (var j = 0; j < armorTypes2D[i].length; j++) {
-            var CLASS = ".armor" + bipedPart;
-            $(CLASS).attr('style', '');
+function clearSelected(bipedPart) { // Clears the table for the biped part as specified.
+    for (var i = 0; i < armorTypes2D.length; i++) { // Loops through the first array.
+        for (var j = 0; j < armorTypes2D[i].length; j++) { // Loops through an array inside the first array.
+            var CLASS = ".armor" + bipedPart; // Sets what class the use.
+            $(CLASS).removeAttr('style'); // Removes the style attribute.
         }
     }
 }
-function checkArmor(bipedPart) {
-    clearSelected(bipedPart);
-    dewRcon.send("Player.Armor." + bipedPart);
+function checkArmor(bipedPart) { // Checks what armor is equipped and sets the text color on the table.
+    clearSelected(bipedPart); // Clears the table for the biped part as specified.
+    dewRcon.send("Player.Armor." + bipedPart); // Gets the armor.
     dewRcon.dewWebSocket.onmessage = function(message) {
-        for (var i = 0; i < armorTypes2D.length; i++) {
-            for (var j = 0; j < armorTypes2D[i].length; j++) {
-                if (armorTypes2D[i][j] == message.data) {
-                    var CLASS = ".armor" + bipedPart + "." + armorTypes2D[i][j];
-                    while ($(CLASS).attr('style') != 'color: blue') {
-                        $(CLASS).attr('style', 'color: blue');
+        for (var i = 0; i < armorTypes2D.length; i++) { // Clears the table for the biped part as specified.
+            for (var j = 0; j < armorTypes2D[i].length; j++) { // Loops through the first array.
+                if (message.data == armorTypes2D[i][j]) { // Compares the response from the game to the array of names.
+                    var CLASS = ".armor" + bipedPart + "." + armorTypes2D[i][j]; // Sets what class the use.
+                    while ($(CLASS).attr('style') != 'color: blue') { // Checks if the style attribute doesn't contains the color blue.
+                        $(CLASS).attr('style', 'color: blue'); // Sets the style attribute for the color blue.
                     }
                 }
             }
         }
     }
 }
-function addTable(bipedPart) {
-    checkArmor(bipedPart);
-    var CLASS = '.armor' + bipedPart;
-    $(CLASS).attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))');
-    $(CLASS).attr('onclick', 'delTable("' + bipedPart + '")');
+function setDynamicAttrutes(bipedPart) { // Dynamically sets the attributes of the table with the specified biped part.
+    checkArmor(bipedPart); // Checks what armor is equipped and sets the text color on the table.
+    var CLASS = '.armor' + bipedPart; // Sets what class the use.
+    $(CLASS).attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))'); // Sets the onmouseover attribute.
+    $(CLASS).attr('onclick', 'removeDynamicAttrutes("' + bipedPart + '")'); // Sets the onclick attribute.
 }
-function delTable(bipedPart) {
-    checkArmor(bipedPart);
-    var CLASS = '.armor' + bipedPart;
-        $(CLASS).removeAttr('onmouseover', '')
-        $(CLASS).removeAttr('onclick', '')
+function removeDynamicAttrutes(bipedPart) { // Dynamically removes the attributes of the table with the specified biped part.
+    checkArmor(bipedPart); // Checks what armor is equipped and sets the text color on the table.
+    var CLASS = '.armor' + bipedPart; // Sets what class the use.
+        $(CLASS).removeAttr('onmouseover'); // Removes the onclick attribute.
+        $(CLASS).removeAttr('onclick'); // Removes the onclick attribute.
 }
-var createGroupedArray = function(arr, chunkSize) {
+var createGroupedArray = function(arr, chunkSize) { // Not sure how it works got it from http://www.frontcoded.com/splitting-javascript-array-into-chunks.html
     var groups = [], i;
     for (i = 0; i < arr.length; i += chunkSize) {
         groups.push(arr.slice(i, i + chunkSize));
     }
     return groups;
 };
-
-var armorTypes2D = createGroupedArray(armorTypes1D, 13);
-
+var armorTypes2D = createGroupedArray(armorTypes1D, 13); // Makes a 2D array, I think.
 function creteTable(bipedPart) {
     var firstID = "#" + bipedPart + "First";
     var lastID = "#" + bipedPart + "Last";
     $(firstID).append(
-        '<th value="' + bipedPart + '" rowspan="2"><a onclick="addTable(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
+        '<th value="' + bipedPart + '" rowspan="2"><a onclick="setDynamicAttrutes(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
     );
     for (var i = 0; i < armorTypes2D[0].length; i++) {
         $(firstID).append(
@@ -84,7 +82,6 @@ function creteTable(bipedPart) {
         );
     }
 }
-
 function fillTable() {
     var Arms = '<tr id="title"></tr><tr id="ArmsFirst"></tr><tr id="ArmsLast"></tr>'
     var Chest = '<tr id="ChestFirst"></tr><tr id="ChestLast"></tr>'
