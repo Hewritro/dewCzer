@@ -32,10 +32,10 @@ function getAll() {
         getArmor('Legs');
         getArmor('Shoulders');
         getColor('Holo');
-        setTimeout(getColor('Lights'), 1000);
-        setTimeout(getColor('Primary'), 1500);
-        setTimeout(getColor('Secondary'), 2000);
-        setTimeout(getColor('Visor'), 2500);
+        getColor('Lights');
+        getColor('Primary');
+        getColor('Secondary');
+        getColor('Visor');
     }
 //'<tbody><tr><th id="Colors"></th><td>Primary Color<input type="color" id="myColor" value="#ff0080"></td><td>Primary Color<input type="color" id="myColor" value="#ff0080"></td></tr></tbody>'
     setTimeout(initialize, 3000);
