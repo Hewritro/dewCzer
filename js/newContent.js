@@ -43,13 +43,13 @@ function checkArmor(bipedPart) { // Checks what armor is equipped and sets the t
         }
     }
 }
-function setDynamicAttrutes(bipedPart) { // Dynamically sets the attributes of the table with the specified biped part.
+function setDynamicAttributes(bipedPart) { // Dynamically sets the attributes of the table with the specified biped part.
     checkArmor(bipedPart); // Checks what armor is equipped and sets the text color on the table.
     var CLASS = '.armor' + bipedPart; // Sets what class the use.
     $(CLASS).attr('onmouseover', 'setArmor($(this).siblings("th").first().attr("value"), $(this).attr("value"))'); // Sets the onmouseover attribute.
-    $(CLASS).attr('onclick', 'removeDynamicAttrutes("' + bipedPart + '")'); // Sets the onclick attribute.
+    $(CLASS).attr('onclick', 'removeDynamicAttributes("' + bipedPart + '")'); // Sets the onclick attribute.
 }
-function removeDynamicAttrutes(bipedPart) { // Dynamically removes the attributes of the table with the specified biped part.
+function removeDynamicAttributes(bipedPart) { // Dynamically removes the attributes of the table with the specified biped part.
     checkArmor(bipedPart); // Checks what armor is equipped and sets the text color on the table.
     var CLASS = '.armor' + bipedPart; // Sets what class the use.
         $(CLASS).removeAttr('onmouseover'); // Removes the onclick attribute.
@@ -63,41 +63,43 @@ var createGroupedArray = function(arr, chunkSize) { // Not sure how it works got
     return groups;
 };
 var armorTypes2D = createGroupedArray(armorTypes1D, 13); // Makes a 2D array, I think.
-function creteTable(bipedPart) {
-    var firstID = "#" + bipedPart + "First";
-    var lastID = "#" + bipedPart + "Last";
-    $(firstID).append(
-        '<th value="' + bipedPart + '" rowspan="2"><a onclick="setDynamicAttrutes(' + "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>'
+function creteTable(bipedPart) { // Creates the table for the specified biped part.
+    var firstID = "#" + bipedPart + "First"; // Sets what ID the use.
+    var lastID = "#" + bipedPart + "Last"; // Sets what ID the use.
+    $(firstID).append( //
+        '<th value="' + bipedPart + '" rowspan="2"><a onclick="setDynamicAttributes(' +
+        "'" + bipedPart + "'" + ')" class="SideButtons">' + bipedPart + '</a></th>' //
     );
-    for (var i = 0; i < armorTypes2D[0].length; i++) {
-        $(firstID).append(
-            '<td class="armor' + bipedPart + ' ' + armorTypes2D[0][i] + '" value="' + armorTypes2D[0][i] + '">' + armorTypes2D[2][i] + '</td>'
+    for (var i = 0; i < armorTypes2D[0].length; i++) { //
+        $(firstID).append( //
+            '<td class="armor' + bipedPart + ' ' + armorTypes2D[0][i] +
+            '" value="' + armorTypes2D[0][i] + '">' + armorTypes2D[2][i] + '</td>' //
         );
     }
-    $(lastID).append('<th value="' + bipedPart + '" style="display: none"></th>');
+    $(lastID).append('<th value="' + bipedPart + '" style="display: none"></th>'); //
 
     for (var i = 0; i < armorTypes2D[1].length; i++) {
         $(lastID).append(
-            '<td class="armor' + bipedPart + ' ' + armorTypes2D[1][i] + '" value="' + armorTypes2D[1][i] + '">' + armorTypes2D[3][i] + '</td>'
+            '<td class="armor' + bipedPart + ' ' + armorTypes2D[1][i] +
+            '" value="' + armorTypes2D[1][i] + '">' + armorTypes2D[3][i] + '</td>' //
         );
     }
 }
-function fillTable() {
-    var Arms = '<tr id="title"></tr><tr id="ArmsFirst"></tr><tr id="ArmsLast"></tr>'
-    var Chest = '<tr id="ChestFirst"></tr><tr id="ChestLast"></tr>'
-    var Helmet = '<tr id="HelmetFirst"></tr><tr id="HelmetLast"></tr>'
-    var Legs = '<tr id="LegsFirst"></tr><tr id="LegsLast"></tr>'
-    var Shoulders = '<tr id="ShouldersFirst"></tr><tr id="ShouldersLast"></tr>'
+function fillTable() { //
+    var Arms = '<tr id="title"></tr><tr id="ArmsFirst"></tr><tr id="ArmsLast"></tr>'; //
+    var Chest = '<tr id="ChestFirst"></tr><tr id="ChestLast"></tr>'; //
+    var Helmet = '<tr id="HelmetFirst"></tr><tr id="HelmetLast"></tr>'; //
+    var Legs = '<tr id="LegsFirst"></tr><tr id="LegsLast"></tr>'; //
+    var Shoulders = '<tr id="ShouldersFirst"></tr><tr id="ShouldersLast"></tr>'; //
 
-    $('#table').append(Arms + Chest + Helmet + Legs + Shoulders);
+    $('#table').append(Arms + Chest + Helmet + Legs + Shoulders); //
+    $('#title').append('<th colspan="14">Armor</th>'); //
 
-    $('#title').append('<th colspan="14">Armor</th>');
-
-    creteTable("Arms");
-    creteTable("Chest");
-    creteTable("Helmet");
-    creteTable("Legs");
-    creteTable("Shoulders");
+    creteTable("Arms"); //
+    creteTable("Chest"); //
+    creteTable("Helmet"); //
+    creteTable("Legs"); //
+    creteTable("Shoulders"); //
 }
 
 /*
